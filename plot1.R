@@ -5,6 +5,7 @@ power_consumption$Date <- paste(power_consumption$Date,power_consumption$Time,se
 power_consumption$Date <- strptime(power_consumption$Date, format = "%d/%m/%Y %H:%M:%S", tz = "UTC")
 power_consumption <- power_consumption[power_consumption$Date >= strptime("2007-02-01", format="%Y-%m-%d", tz="UTC"),]
 power_consumption <- power_consumption[power_consumption$Date < strptime("2007-02-03", format="%Y-%m-%d", tz="UTC"),]
+par(mfrow = c(1,1), pty = "m")
 png(file="plot1.png")
 hist(power_consumption$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab="Frequency", col = "red")
 dev.off()

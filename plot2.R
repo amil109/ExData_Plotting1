@@ -6,5 +6,6 @@ power_consumption$Date <- strptime(power_consumption$Date, format = "%d/%m/%Y %H
 power_consumption <- power_consumption[power_consumption$Date >= strptime("2007-02-01", format="%Y-%m-%d", tz="UTC"),]
 power_consumption <- power_consumption[power_consumption$Date < strptime("2007-02-03", format="%Y-%m-%d", tz="UTC"),]
 png(file="plot2.png")
+par(mfrow = c(1,1), pty = "m")
 plot(power_consumption$Date,power_consumption$Global_active_power,type="l",xlab="",ylab="Global Active Power (kilowatts)")
 dev.off()

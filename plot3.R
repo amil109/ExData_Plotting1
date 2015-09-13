@@ -6,6 +6,7 @@ power_consumption$Date <- strptime(power_consumption$Date, format = "%d/%m/%Y %H
 power_consumption <- power_consumption[power_consumption$Date >= strptime("2007-02-01", format="%Y-%m-%d", tz="UTC"),]
 power_consumption <- power_consumption[power_consumption$Date < strptime("2007-02-03", format="%Y-%m-%d", tz="UTC"),]
 png(file="plot3.png")
+par(mfrow = c(1,1), pty = "m")
 plot(power_consumption$Date,power_consumption$Sub_metering_1, type="l",xlab="",ylab="Energy Sub Metering",ylim = c(0,max(power_consumption[,7:9])))
 lines(power_consumption$Date, power_consumption$Sub_metering_2,col = "Red")
 lines(power_consumption$Date, power_consumption$Sub_metering_3,col = "Blue")
